@@ -46,6 +46,7 @@
             oneSecondPassed () {
                 if (this.second === 0) {
                     if (this.minute === 0) {
+                        clearInterval(this.timer);
                         return;
                     }
                     this.second = 59;
