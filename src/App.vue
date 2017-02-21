@@ -49,6 +49,7 @@
                 if (this.second === 0) {
                     if (this.minute === 0) {
                         clearInterval(this.timer);
+                        this.notifyUser();
                         return;
                     }
                     this.second = 59;
@@ -80,6 +81,10 @@
                 this.defaultLength = num;
                 this.reset();
             },
+            notifyUser() {
+                if (Notification.permission === "granted") {
+                    new Notification("Time's Up");
+                }
             }
         },
         computed: {
@@ -94,6 +99,9 @@
                 }
                 return minute + " : " + second;
             }
+        },
+        created() {
+            Notification.requestPermission();
         }
     }
 </script>
