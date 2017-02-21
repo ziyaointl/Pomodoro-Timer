@@ -14,14 +14,14 @@
                         </div>
                         <div class="columns">
                             <div class="column">
-                                <a class="button is-warning is-inverted is-outlined" @click="subtractMinute">-</a>
-                                <a class="button is-warning is-inverted is-outlined" @click="reset">Reset</a>
-                                <a class="button is-warning is-inverted is-outlined" @click="addMinute">+</a>
+                                <a class="button is-warning is-inverted is-outlined is-large" @click="subtractMinute">-</a>
+                                <a class="button is-warning is-inverted is-outlined is-large" @click="reset">Reset</a>
+                                <a class="button is-warning is-inverted is-outlined is-large" @click="addMinute">+</a>
                             </div>
                         </div>
                         <div class="columns">
                             <div class="column">
-                                <a class="button is-warning is-inverted is-outlined" @click="start">Start</a>
+                                <a class="button is-warning is-inverted is-outlined is-large" @click="start">Start</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,8 @@
     }
 
     .time {
-        font-size: 30px;
+        font-size: 100px;
+        font-weight: 100;
     }
 
     .main {
