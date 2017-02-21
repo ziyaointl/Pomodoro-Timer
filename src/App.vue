@@ -15,13 +15,15 @@
                         <div class="columns">
                             <div class="column">
                                 <a class="button is-warning is-inverted is-outlined is-large" @click="subtractMinute">-</a>
-                                <a class="button is-warning is-inverted is-outlined is-large" @click="reset">Reset</a>
+                                <a class="button is-warning is-inverted is-outlined is-large long-button" @click="reset">Reset</a>
                                 <a class="button is-warning is-inverted is-outlined is-large" @click="addMinute">+</a>
                             </div>
                         </div>
                         <div class="columns">
                             <div class="column">
-                                <a class="button is-warning is-inverted is-outlined is-large" @click="start">Start</a>
+                                <a class="button is-warning is-inverted is-outlined is-large" @click="set(10)">10</a>
+                                <a class="button is-warning is-inverted is-outlined is-large long-button" @click="start">Start</a>
+                                <a class="button is-warning is-inverted is-outlined is-large" @click="set(25)">25</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
             }
         },
         methods: {
-            oneSecondPassed () {
+            oneSecondPassed() {
                 if (this.second === 0) {
                     if (this.minute === 0) {
                         clearInterval(this.timer);
@@ -56,7 +58,7 @@
                     this.second -= 1;
                 }
             },
-            start () {
+            start() {
                 this.timer = setInterval(this.oneSecondPassed, 1000);
             },
             reset() {
@@ -73,6 +75,11 @@
                     this.defaultLength -= 1;
                 }
                 this.reset();
+            },
+            set(num) {
+                this.defaultLength = num;
+                this.reset();
+            },
             }
         },
         computed: {
@@ -112,4 +119,7 @@
         margin: auto;
     }
 
+    .long-button {
+        width: 80px;
+    }
 </style>
