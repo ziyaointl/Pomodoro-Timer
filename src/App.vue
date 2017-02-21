@@ -1,18 +1,41 @@
 <template>
-  <div id="app">
-    
-  </div>
+    <div id="app">
+        <section class="hero is-fullheight is-bold is-warning">
+            <div class="hero-head">
+                <h1 class="title">Pomodoro Timer</h1>
+            </div>
+            <div class="container hero-body has-text-centered">
+                <h1 class="time">{{ minute }} : {{ second }}</h1>
+                <a class="button is-primary is-inverted is-outlined" @click="oneSecondPassed">Click</a>
+            </div>
+        </section>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-
+    export default {
+        name: 'app',
+        data () {
+            return {
+                second: 0,
+                minute: 25
+            }
+        },
+        methods: {
+            oneSecondPassed () {
+                if (this.second === 0) {
+                    if (this.minute === 0) {
+                        return;
+                    }
+                    this.second = 59;
+                    this.minute -= 1;
+                }
+                else {
+                    this.second -= 1;
+                }
+            }
+        }
     }
-  }
-}
 </script>
 
 <style lang="scss">
