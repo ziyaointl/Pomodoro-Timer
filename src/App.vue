@@ -5,22 +5,24 @@
                 <h1 class="title">Pomodoro Timer</h1>
             </div>
             <div class="container hero-body">
-                <div class="container">
-                    <div class="columns">
-                        <div class="column">
-                            <h1 class="time">{{ time }}</h1>
+                <div class="main has-text-centered">
+                    <div class="container">
+                        <div class="columns">
+                            <div class="column">
+                                <h1 class="time">{{ time }}</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            <a class="button is-warning is-inverted is-outlined" @click="subtractMinute">-</a>
-                            <a class="button is-warning is-inverted is-outlined" @click="reset">Reset</a>
-                            <a class="button is-warning is-inverted is-outlined" @click="addMinute">+</a>
+                        <div class="columns">
+                            <div class="column">
+                                <a class="button is-warning is-inverted is-outlined" @click="subtractMinute">-</a>
+                                <a class="button is-warning is-inverted is-outlined" @click="reset">Reset</a>
+                                <a class="button is-warning is-inverted is-outlined" @click="addMinute">+</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            <a class="button is-warning is-inverted is-outlined" @click="start">Start</a>
+                        <div class="columns">
+                            <div class="column">
+                                <a class="button is-warning is-inverted is-outlined" @click="start">Start</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,4 +105,9 @@
     .time {
         font-size: 30px;
     }
+
+    .main {
+        margin: auto;
+    }
+
 </style>
