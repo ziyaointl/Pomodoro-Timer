@@ -4,9 +4,26 @@
             <div class="hero-head">
                 <h1 class="title">Pomodoro Timer</h1>
             </div>
-            <div class="container hero-body has-text-centered">
-                <h1 class="time">{{ minute }} : {{ second }}</h1>
-                <a class="button is-primary is-inverted is-outlined" @click="oneSecondPassed">Click</a>
+            <div class="container hero-body">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column">
+                            <h1 class="time">{{ time }}</h1>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <a class="button is-warning is-inverted is-outlined" @click="subtractMinute">-</a>
+                            <a class="button is-warning is-inverted is-outlined" @click="reset">Reset</a>
+                            <a class="button is-warning is-inverted is-outlined" @click="addMinute">+</a>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <a class="button is-warning is-inverted is-outlined" @click="start">Start</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -18,7 +35,9 @@
         data () {
             return {
                 second: 0,
-                minute: 25
+                minute: 25,
+                defaultLength: 25,
+                timer: null
             }
         },
         methods: {
@@ -33,6 +52,37 @@
                 else {
                     this.second -= 1;
                 }
+            },
+            start () {
+                this.timer = setInterval(this.oneSecondPassed, 1000);
+            },
+            reset() {
+                clearInterval(this.timer);
+                this.minute = this.defaultLength;
+                this.second = 0;
+            },
+            addMinute() {
+                this.defaultLength += 1;
+                this.reset();
+            },
+            subtractMinute() {
+                if (this.defaultLength > 1) {
+                    this.defaultLength -= 1;
+                }
+                this.reset();
+            }
+        },
+        computed: {
+            time() {
+                let minute = this.minute;
+                let second = this.second;
+                if (minute <= 9) {
+                    minute = '0' + minute;
+                }
+                if (second <= 9) {
+                    second = '0' + second;
+                }
+                return minute + " : " + second;
             }
         }
     }
