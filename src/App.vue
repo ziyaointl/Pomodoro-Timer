@@ -41,7 +41,8 @@
                 second: 0,
                 minute: 25,
                 defaultLength: 25,
-                timer: null
+                timer: null,
+                timerIsOn: false
             }
         },
         methods: {
@@ -60,12 +61,16 @@
                 }
             },
             start() {
-                this.timer = setInterval(this.oneSecondPassed, 1000);
+                if (!this.timerIsOn) {
+                    this.timer = setInterval(this.oneSecondPassed, 1000);
+                    this.timerIsOn = true;
+                }
             },
             reset() {
                 clearInterval(this.timer);
                 this.minute = this.defaultLength;
                 this.second = 0;
+                this.timerIsOn = false;
             },
             addMinute() {
                 this.defaultLength += 1;
