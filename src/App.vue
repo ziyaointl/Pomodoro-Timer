@@ -87,9 +87,9 @@
                 this.reset();
             },
             notifyUser() {
-                if (Notification.permission === "granted") {
-                    new Notification("Time's Up");
-                }
+//                if (Notification.permission === "granted") {
+//                    new Notification("Time's Up");
+//                }
             }
         },
         computed: {
@@ -106,7 +106,7 @@
             }
         },
         created() {
-            Notification.requestPermission();
+//            Notification.requestPermission();
         }
     }
 </script>
