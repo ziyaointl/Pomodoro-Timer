@@ -128,6 +128,12 @@
         font-weight: 100;
     }
 
+    @media (max-width: 768px) {
+        .time {
+            font-size: 80px;
+        }
+    }
+
     .main {
         margin: auto;
     }
