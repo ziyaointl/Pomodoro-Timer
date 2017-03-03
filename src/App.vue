@@ -141,4 +141,10 @@
     .long-button {
         width: 80px;
     }
+
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden
+    }
 </style>
