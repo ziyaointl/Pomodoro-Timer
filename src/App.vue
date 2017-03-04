@@ -147,4 +147,8 @@
         height: 100%;
         overflow: hidden
     }
+
+    .main {
+        width: 100vw;
+    }
 </style>
